@@ -21,16 +21,16 @@ class _DetailPageState extends State<DetailPage> {
           ),
       backgroundColor: Colors.brown.shade300,
       body: Padding(
-        padding: EdgeInsets.only(top: 16),
+        padding: const EdgeInsets.only(top: 16),
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               child: Container(
                 height: s.height * 0.4,
                 width: s.width * 10,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(
+                  borderRadius: const BorderRadius.all(
                     Radius.circular(40),
                   ),
                   image: DecorationImage(
@@ -54,7 +54,7 @@ class _DetailPageState extends State<DetailPage> {
                             child: Text(
                               overflow: TextOverflow.ellipsis,
                               detail['name'],
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 30,
                                   fontWeight: FontWeight.w500,
                                   color: Colors.brown),
@@ -70,18 +70,18 @@ class _DetailPageState extends State<DetailPage> {
                               }
                             },
                             icon: fav.contains(detail)
-                                ? Icon(
+                                ? const Icon(
                                     Icons.favorite,
                                     color: Colors.brown,
                                   )
-                                : Icon(
+                                : const Icon(
                                     Icons.favorite_outline,
                                     size: 30,
                                     color: Colors.brown,
                                   ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Expanded(
@@ -93,23 +93,23 @@ class _DetailPageState extends State<DetailPage> {
                               }
                             },
                             icon: meal.contains(detail)
-                                ? Icon(
+                                ? const Icon(
                                     Icons.no_meals,
                                     color: Colors.brown,
                                   )
-                                : Icon(
+                                : const Icon(
                                     Icons.set_meal,
                                     size: 30,
                                     color: Colors.brown,
                                   ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 20,
                         ),
                       ],
                     ),
-                    Column(
+                    const Column(
                       children: [],
                     ),
                   ],

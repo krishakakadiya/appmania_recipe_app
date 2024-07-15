@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> {
     Size s = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Yummy Recipies",
           style: TextStyle(
               fontSize: 30, fontWeight: FontWeight.w500, color: Colors.white),
@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
             onPressed: () {
               Navigator.of(context).pushNamed('fav_page');
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.favorite,
               color: Colors.white,
               size: 30,
@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
             onPressed: () {
               Navigator.of(context).pushNamed('meal_page');
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.menu_book_rounded,
               color: Colors.white,
               size: 30,
@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.brown.shade300,
       ),
       body: Padding(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -72,7 +72,7 @@ class _HomePageState extends State<HomePage> {
                 ...allRecipies
                     .map(
                       (e) => Padding(
-                        padding: EdgeInsets.all(7),
+                        padding: const EdgeInsets.all(7),
                         child: GestureDetector(
                           onTap: () {
                             Navigator.of(context)
@@ -83,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                             width: s.width * 10,
                             decoration: BoxDecoration(
                               color: Colors.brown.shade300,
-                              borderRadius: BorderRadius.only(
+                              borderRadius: const BorderRadius.only(
                                 bottomRight: Radius.circular(150),
                                 topRight: Radius.circular(150),
                               ),
@@ -100,48 +100,48 @@ class _HomePageState extends State<HomePage> {
                                         e['name'],
                                         maxLines: 2,
                                         overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontSize: 25,
                                             fontWeight: FontWeight.w400,
                                             color: Colors.white),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 10,
                                       ),
                                       Text(
                                         "Total Time ${e['prepTimeMinutes'] + e['cookTimeMinutes']}",
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.w200,
                                             color: Colors.black87),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 10,
                                       ),
                                       Text(
                                         "persons ${e['servings']}",
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.w200,
                                             color: Colors.black87),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 10,
                                       ),
                                       Text(
                                         "Meal Type ${e['mealType']}",
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.w200,
                                             color: Colors.black87),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 10,
                                       ),
                                       (!fav.contains(e))
@@ -150,7 +150,7 @@ class _HomePageState extends State<HomePage> {
                                                 fav.add(e);
                                                 setState(() {});
                                               },
-                                              icon: Icon(Icons
+                                              icon: const Icon(Icons
                                                   .favorite_border_outlined),
                                               iconSize: 35,
                                             )
@@ -159,7 +159,7 @@ class _HomePageState extends State<HomePage> {
                                                 fav.remove(e);
                                                 setState(() {});
                                               },
-                                              icon: Icon(Icons.favorite),
+                                              icon: const Icon(Icons.favorite),
                                               iconSize: 35,
                                             ),
                                       Container(
@@ -174,7 +174,7 @@ class _HomePageState extends State<HomePage> {
                                           "${e['difficulty']}",
                                           maxLines: 1,
                                           overflow: TextOverflow.ellipsis,
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               fontSize: 18,
                                               fontWeight: FontWeight.w200,
                                               color: Colors.black87),
@@ -184,7 +184,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.all(8),
+                                  padding: const EdgeInsets.all(8),
                                   child: Expanded(
                                     child: Container(
                                       width: s.width * 0.5,

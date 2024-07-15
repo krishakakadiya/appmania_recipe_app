@@ -15,7 +15,7 @@ class _FavPageState extends State<FavPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.brown.shade300,
-        title: Text("Your Favourite Items"),
+        title: const Text("Your Favourite Items"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -41,7 +41,7 @@ class _FavPageState extends State<FavPage> {
                         onPressed: () {
                           fav.remove(e);
                         },
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.favorite,
                           size: 35,
                         ),

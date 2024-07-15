@@ -10,21 +10,113 @@ class DetailPage extends StatefulWidget {
 
 class _DetailPageState extends State<DetailPage> {
   @override
+  bool isFav = false;
   Widget build(BuildContext context) {
+    Size s = MediaQuery.of(context).size;
     Map<String, dynamic> detail =
         ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     return Scaffold(
       appBar: AppBar(
           // title:Text(),
           ),
+      backgroundColor: Colors.brown.shade300,
       body: Padding(
-        padding: EdgeInsets.all(16),
+        padding: EdgeInsets.only(top: 16),
         child: Column(
-          children: allRecipies
-              .map(
-                (e) => Container(),
-              )
-              .toList(),
+          children: [
+            Padding(
+              padding: EdgeInsets.all(8),
+              child: Container(
+                height: s.height * 0.4,
+                width: s.width * 10,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(40),
+                  ),
+                  image: DecorationImage(
+                    image: NetworkImage(
+                      detail['image'],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Expanded(
+              child: Container(
+                color: Colors.white,
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Expanded(
+                            child: Text(
+                              overflow: TextOverflow.ellipsis,
+                              detail['name'],
+                              style: TextStyle(
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.brown),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: IconButton(
+                            onPressed: () {
+                              if (!fav.contains(detail)) {
+                                fav.add(detail);
+                                fav.remove(detail);
+                              }
+                            },
+                            icon: fav.contains(detail)
+                                ? Icon(
+                                    Icons.favorite,
+                                    color: Colors.brown,
+                                  )
+                                : Icon(
+                                    Icons.favorite_outline,
+                                    size: 30,
+                                    color: Colors.brown,
+                                  ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Expanded(
+                          child: IconButton(
+                            onPressed: () {
+                              if (!meal.contains(detail)) {
+                                fav.add(detail);
+                                fav.remove(detail);
+                              }
+                            },
+                            icon: meal.contains(detail)
+                                ? Icon(
+                                    Icons.no_meals,
+                                    color: Colors.brown,
+                                  )
+                                : Icon(
+                                    Icons.set_meal,
+                                    size: 30,
+                                    color: Colors.brown,
+                                  ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: [],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

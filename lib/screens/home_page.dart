@@ -10,20 +10,37 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool isFav = false;
   @override
   Widget build(BuildContext context) {
     Size s = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Yummy Foods",
+          "Yummy Recipies",
           style: TextStyle(
               fontSize: 30, fontWeight: FontWeight.w500, color: Colors.white),
         ),
         actions: [
           IconButton(
-            onPressed: () {},
-            icon: Icon(),
+            onPressed: () {
+              Navigator.of(context).pushNamed('fav_page');
+            },
+            icon: Icon(
+              Icons.favorite,
+              color: Colors.white,
+              size: 30,
+            ),
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed('meal_page');
+            },
+            icon: Icon(
+              Icons.menu_book_rounded,
+              color: Colors.white,
+              size: 30,
+            ),
           ),
         ],
         backgroundColor: Colors.brown.shade300,
@@ -51,8 +68,8 @@ class _HomePageState extends State<HomePage> {
                 sliderHeight: 400,
                 showIndicator: true,
               ),
-              Column(
-                children: allRecipies
+              Column(children: [
+                ...allRecipies
                     .map(
                       (e) => Padding(
                         padding: EdgeInsets.all(7),
@@ -127,25 +144,40 @@ class _HomePageState extends State<HomePage> {
                                       SizedBox(
                                         height: 10,
                                       ),
-                                      Text(
-                                        "This Recipe is ${e['difficulty']}",
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.w200,
-                                            color: Colors.black87),
-                                      ),
-                                      IconButton(
-                                        onPressed: () {
-                                          if (!fav.contains(e)) {
-                                            fav.add(e);
-                                          }
-                                        },
-                                        icon: Icon(
-                                          Icons.favorite_outline,
-                                          size: 30,
-                                          color: Colors.white,
+                                      (!fav.contains(e))
+                                          ? IconButton(
+                                              onPressed: () {
+                                                fav.add(e);
+                                                setState(() {});
+                                              },
+                                              icon: Icon(Icons
+                                                  .favorite_border_outlined),
+                                              iconSize: 35,
+                                            )
+                                          : IconButton(
+                                              onPressed: () {
+                                                fav.remove(e);
+                                                setState(() {});
+                                              },
+                                              icon: Icon(Icons.favorite),
+                                              iconSize: 35,
+                                            ),
+                                      Container(
+                                        width: s.width * 0.2,
+                                        color: Colors.red,
+                                        // (e['difficulty' == "Easy"])
+                                        //     ? Colors.green
+                                        //     : (e['difficulty' == "Medium"])
+                                        //         ? Colors.orange
+                                        //         : Colors.red,
+                                        child: Text(
+                                          "${e['difficulty']}",
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.w200,
+                                              color: Colors.black87),
                                         ),
                                       ),
                                     ],
@@ -174,7 +206,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     )
                     .toList(),
-              ),
+              ]),
             ],
           ),
         ),

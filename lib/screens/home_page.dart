@@ -181,7 +181,7 @@ class _HomePageState extends State<HomePage> {
                                                     setState(() {});
                                                   },
                                                   icon: const Icon(
-                                                      Icons.no_meals_ouline),
+                                                      Icons.set_meal),
                                                   iconSize: 35,
                                                   color: Colors.white,
                                                 )
@@ -191,7 +191,7 @@ class _HomePageState extends State<HomePage> {
                                                     setState(() {});
                                                   },
                                                   icon: const Icon(
-                                                      Icons.set_meal),
+                                                      Icons.no_meals_ouline),
                                                   iconSize: 35,
                                                   color: Colors.white,
                                                 ),

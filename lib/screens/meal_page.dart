@@ -25,27 +25,38 @@ class _MealPageState extends State<MealPage> {
                 .map(
                   (e) => Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      height: s.height * 0.6,
-                      width: s.width * 0.9,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                          color: Colors.brown.shade300,
-                          image: DecorationImage(
-                            image: NetworkImage(
-                              e['image'],
-                            ),
-                            fit: BoxFit.cover,
-                          )),
-                      alignment: Alignment.topRight,
-                      child: IconButton(
-                        onPressed: () {
-                          meal.remove(e);
-                          setState(() {});
-                        },
-                        icon: const Icon(
-                          Icons.no_meals_ouline,
-                          size: 35,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pushNamed(
+                          'detail_page',
+                          arguments: e,
+                        );
+                      },
+                      onDoubleTap: () {
+                        Navigator.of(context).pushNamed('recipe_page');
+                      },
+                      child: Container(
+                        height: s.height * 0.6,
+                        width: s.width * 0.9,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                            color: Colors.brown.shade300,
+                            image: DecorationImage(
+                              image: NetworkImage(
+                                e['image'],
+                              ),
+                              fit: BoxFit.cover,
+                            )),
+                        alignment: Alignment.topRight,
+                        child: IconButton(
+                          onPressed: () {
+                            meal.remove(e);
+                            setState(() {});
+                          },
+                          icon: const Icon(
+                            Icons.no_meals_ouline,
+                            size: 35,
+                          ),
                         ),
                       ),
                     ),

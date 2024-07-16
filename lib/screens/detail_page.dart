@@ -66,12 +66,16 @@ class _DetailPageState extends State<DetailPage> {
                             onPressed: () {
                               if (!fav.contains(detail)) {
                                 fav.add(detail);
+                                setState(() {});
+                              } else {
                                 fav.remove(detail);
+                                setState(() {});
                               }
                             },
                             icon: fav.contains(detail)
                                 ? const Icon(
                                     Icons.favorite,
+                                    size: 30,
                                     color: Colors.brown,
                                   )
                                 : const Icon(
@@ -81,20 +85,24 @@ class _DetailPageState extends State<DetailPage> {
                                   ),
                           ),
                         ),
-                        const SizedBox(
-                          width: 10,
+                        SizedBox(
+                          height: 10,
                         ),
                         Expanded(
                           child: IconButton(
                             onPressed: () {
                               if (!meal.contains(detail)) {
-                                fav.add(detail);
-                                fav.remove(detail);
+                                meal.add(detail);
+                                setState(() {});
+                              } else {
+                                meal.remove(detail);
+                                setState(() {});
                               }
                             },
                             icon: meal.contains(detail)
                                 ? const Icon(
-                                    Icons.no_meals,
+                                    Icons.no_meals_ouline,
+                                    size: 30,
                                     color: Colors.brown,
                                   )
                                 : const Icon(
@@ -103,9 +111,6 @@ class _DetailPageState extends State<DetailPage> {
                                     color: Colors.brown,
                                   ),
                           ),
-                        ),
-                        const SizedBox(
-                          width: 20,
                         ),
                       ],
                     ),

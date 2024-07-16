@@ -144,38 +144,76 @@ class _HomePageState extends State<HomePage> {
                                       const SizedBox(
                                         height: 10,
                                       ),
-                                      (!fav.contains(e))
-                                          ? IconButton(
-                                              onPressed: () {
-                                                fav.add(e);
-                                                setState(() {});
-                                              },
-                                              icon: const Icon(Icons
-                                                  .favorite_border_outlined),
-                                              iconSize: 35,
-                                            )
-                                          : IconButton(
-                                              onPressed: () {
-                                                fav.remove(e);
-                                                setState(() {});
-                                              },
-                                              icon: const Icon(Icons.favorite),
-                                              iconSize: 35,
-                                            ),
+                                      Row(
+                                        children: [
+                                          Column(
+                                            children: [
+                                              (!fav.contains(e))
+                                                  ? IconButton(
+                                                      onPressed: () {
+                                                        fav.add(e);
+                                                        setState(() {});
+                                                      },
+                                                      icon: const Icon(Icons
+                                                          .favorite_border_outlined),
+                                                      iconSize: 35,
+                                                      color: Colors.white,
+                                                    )
+                                                  : IconButton(
+                                                      onPressed: () {
+                                                        fav.remove(e);
+                                                        setState(() {});
+                                                      },
+                                                      icon: const Icon(
+                                                          Icons.favorite),
+                                                      iconSize: 35,
+                                                      color: Colors.white,
+                                                    ),
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          (!meal.contains(e))
+                                              ? IconButton(
+                                                  onPressed: () {
+                                                    meal.add(e);
+                                                    setState(() {});
+                                                  },
+                                                  icon: const Icon(
+                                                      Icons.no_meals_ouline),
+                                                  iconSize: 35,
+                                                  color: Colors.white,
+                                                )
+                                              : IconButton(
+                                                  onPressed: () {
+                                                    meal.remove(e);
+                                                    setState(() {});
+                                                  },
+                                                  icon: const Icon(
+                                                      Icons.set_meal),
+                                                  iconSize: 35,
+                                                  color: Colors.white,
+                                                ),
+                                        ],
+                                      ),
                                       Container(
                                         width: s.width * 0.2,
-                                        color: Colors.red,
-                                        // (e['difficulty' == "Easy"])
-                                        //     ? Colors.green
-                                        //     : (e['difficulty' == "Medium"])
-                                        //         ? Colors.orange
-                                        //         : Colors.red,
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(20)),
+                                          color: (e['difficulty'] == "Easy")
+                                              ? Colors.green
+                                              : (e['difficulty'] == "Medium")
+                                                  ? Colors.orange
+                                                  : Colors.red,
+                                        ),
                                         child: Text(
                                           "${e['difficulty']}",
                                           maxLines: 1,
                                           overflow: TextOverflow.ellipsis,
                                           style: const TextStyle(
-                                              fontSize: 18,
+                                              fontSize: 16,
                                               fontWeight: FontWeight.w200,
                                               color: Colors.black87),
                                         ),

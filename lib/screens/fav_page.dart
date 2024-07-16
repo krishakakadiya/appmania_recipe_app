@@ -29,6 +29,7 @@ class _FavPageState extends State<FavPage> {
                       height: s.height * 0.6,
                       width: s.width * 0.9,
                       decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
                           color: Colors.brown.shade300,
                           image: DecorationImage(
                             image: NetworkImage(
@@ -40,6 +41,7 @@ class _FavPageState extends State<FavPage> {
                       child: IconButton(
                         onPressed: () {
                           fav.remove(e);
+                          setState(() {});
                         },
                         icon: const Icon(
                           Icons.favorite,

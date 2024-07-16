@@ -10,7 +10,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool isFav = false;
   @override
   Widget build(BuildContext context) {
     Size s = MediaQuery.of(context).size;
